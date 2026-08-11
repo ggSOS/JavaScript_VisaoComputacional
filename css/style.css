@@ -1,0 +1,439 @@
+/* ==========================================================================
+   VISÃO COMPUTACIONAL APLICADA — FIAP
+   Folha de estilos compartilhada por todas as 21 aulas práticas.
+   Paleta baseada na identidade visual da FIAP (www.fiap.com.br):
+   vermelho de marca, preto e branco, com cinzas neutros de apoio.
+   ========================================================================== */
+
+:root {
+  --fiap-red: #e4002b;
+  --fiap-red-dark: #b40021;
+  --fiap-black: #0d0d0d;
+  --fiap-white: #ffffff;
+  --fiap-gray-100: #f5f5f5;
+  --fiap-gray-300: #d9d9d9;
+  --fiap-gray-600: #6b6b6b;
+  --fiap-success: #1fa855;
+  --fiap-warning: #e6a700;
+
+  --font-base: "Segoe UI", Roboto, Arial, sans-serif;
+  --font-code: "Consolas", "Courier New", monospace;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background: var(--fiap-gray-100);
+  color: var(--fiap-black);
+}
+
+/* ---------- Header ---------- */
+
+.fiap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--fiap-black);
+  color: var(--fiap-white);
+  padding: 18px 32px;
+  border-bottom: 4px solid var(--fiap-red);
+}
+
+.fiap-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fiap-header__logo {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--fiap-red);
+  letter-spacing: 1px;
+}
+
+.fiap-header__divider {
+  width: 1px;
+  height: 22px;
+  background: var(--fiap-gray-600);
+}
+
+.fiap-header__title {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.fiap-header__tag {
+  background: var(--fiap-red);
+  color: var(--fiap-white);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.intro h1 {
+  color: var(--fiap-black);
+  border-left: 6px solid var(--fiap-red);
+  padding-left: 14px;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.intro p {
+  color: var(--fiap-gray-600);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.intro .badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--fiap-gray-300);
+  color: var(--fiap-black);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ---------- Stage panel (câmera / imagens) ---------- */
+
+.stage-panel {
+  background: var(--fiap-white);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 28px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.stage-panel h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: var(--fiap-black);
+}
+
+/* Câmera / vídeo ao vivo (Aulas 18-21) */
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--fiap-black);
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+#video,
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#video {
+  object-fit: cover;
+  transform: scaleX(-1); /* efeito espelho, mais natural para o usuário */
+}
+
+#overlay {
+  transform: scaleX(-1);
+}
+
+/* Upload de imagem (Aulas 1-17) */
+
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.upload-row input[type="file"] {
+  font-family: var(--font-base);
+}
+
+.hint {
+  color: var(--fiap-gray-600);
+  font-size: 0.85rem;
+}
+
+/* Grade de canvases/imagens (entrada + resultados) */
+
+.canvas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.canvas-card {
+  background: var(--fiap-gray-100);
+  border: 1px solid var(--fiap-gray-300);
+  border-radius: var(--radius);
+  padding: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.canvas-card h3 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: var(--fiap-red-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.canvas-card canvas,
+.canvas-card img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  background: repeating-conic-gradient(#e9e9e9 0% 25%, #ffffff 0% 50%) 50% / 16px 16px;
+}
+
+/* Controles */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--fiap-red);
+  color: var(--fiap-white);
+}
+
+.btn--outline {
+  background: var(--fiap-white);
+  color: var(--fiap-red);
+  border: 2px solid var(--fiap-red);
+}
+
+.btn--ghost {
+  background: var(--fiap-gray-300);
+  color: var(--fiap-black);
+}
+
+label.control-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fiap-gray-600);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status {
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--fiap-gray-600);
+  min-height: 22px;
+}
+
+.status--ok {
+  color: var(--fiap-success);
+}
+
+.status--warn {
+  color: var(--fiap-warning);
+}
+
+.status--error {
+  color: var(--fiap-red-dark);
+}
+
+/* ---------- Log / saída de texto ---------- */
+
+.log-panel {
+  margin-top: 24px;
+  background: var(--fiap-white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.log-panel h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--fiap-black);
+}
+
+.log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+}
+
+.log li {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--fiap-gray-100);
+  color: var(--fiap-gray-600);
+}
+
+.log li:last-child {
+  border-bottom: none;
+}
+
+.log li.log--match {
+  color: var(--fiap-success);
+  font-weight: 700;
+}
+
+.log li.log--nomatch {
+  color: var(--fiap-red-dark);
+  font-weight: 700;
+}
+
+pre#log {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  padding: 14px 16px;
+  border-radius: 8px;
+  max-height: 240px;
+  overflow: auto;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Imagem estática com retângulo interativo (ex.: Aula 21, grabCut) */
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--fiap-gray-100);
+  border: 1px solid var(--fiap-gray-300);
+}
+
+.image-wrapper canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-wrapper canvas.overlay-rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: crosshair;
+}
+
+/* ---------- Nota / callout ---------- */
+
+.callout {
+  border-left: 4px solid var(--fiap-red);
+  background: var(--fiap-gray-100);
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--fiap-black);
+  margin-top: 16px;
+}
+
+.callout strong {
+  color: var(--fiap-red-dark);
+}
+
+/* ---------- Exercícios ---------- */
+
+.exercicios {
+  margin-top: 24px;
+  background: var(--fiap-white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.exercicios h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.exercicios ol {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--fiap-gray-600);
+  line-height: 1.7;
+}
+
+/* ---------- Footer ---------- */
+
+.fiap-footer {
+  text-align: center;
+  padding: 18px;
+  background: var(--fiap-black);
+  color: var(--fiap-gray-300);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 700px) {
+  .fiap-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
