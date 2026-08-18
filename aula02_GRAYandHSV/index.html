@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://docs.opencv.org/4.x/opencv.js"></script>
     <link rel="stylesheet" href="./../css/style.css">
-    <title>Aula 1 | Visão Computacional</title>
+    <title>Aula 02 | Visão Computacional - Cinza, HSV e RGB - FIAP</title>
 </head>
+
 <body>
     <header class="fiap-header">
         <div class="fiap-header__brand">
@@ -14,7 +16,7 @@
             <span class="fiap-header__divider"></span>
             <span class="fiap-header__title">Visão Computacional Aplicada</span>
         </div>
-        <span class="fiap-header__tag">Aula 01</span>
+        <span class="fiap-header__tag">Aula 02</span>
     </header>
 
     <main class="container">
@@ -25,7 +27,8 @@
                 <span class="badge">cv.cvtColor</span>
             </div>
             <h1>Introdução à Visão Computacional - Preparando o Ambiente</h1>
-            <p>Primeiro contato com OpenCV.js: carregar a imagem no navegador, exibi-la no Canvas e converter para cinza</p>
+            <p>Aula de alteração do OpenCV.js: carregar a imagem no navegador, exibi-la no Canvas e converter para cinza
+            </p>
         </section>
 
         <section class="stage_panel">
@@ -43,19 +46,36 @@
                     <h3>Escala de Cinza</h3>
                     <canvas id="canvasSaida"></canvas>
                 </div>
+                <div class="canvas-card">
+                    <h3>Cor HSV</h3>
+                    <canvas id="canvasHSV"></canvas>
+                </div>
+                <div class="canvas-card">
+                    <h3>Cor R</h3>
+                    <canvas id="canvasR"></canvas>
+                </div>
+                <div class="canvas-card">
+                    <h3>Cor G</h3>
+                    <canvas id="canvasG"></canvas>
+                </div>
+                <div class="canvas-card">
+                    <h3>Cor B</h3>
+                    <canvas id="canvasB"></canvas>
+                </div>
             </div>
             <div class="controls">
-                <button id="btnCinza" class="btn btn-primary" disabled>Converter para Cinza</button>
+                <button id="btnCinza" class="btn btn--primary" disabled>Gerar Canvas</button>
             </div>
             <p id="status" class="status">Carregando Opencv.js...</p>
         </section>
-        
+
         <script src="js/script.js" defer></script>
     </main>
 
     <footer class="fiap-footer">
-        <p>Material didático - Aula 01 de Visão Computacional Aplicada | FIAP 2026</p>
+        <p>Material didático - Aula 02 de Visão Computacional Aplicada | FIAP 2026</p>
     </footer>
-    
+
 </body>
+
 </html>
